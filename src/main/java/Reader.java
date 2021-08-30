@@ -6,10 +6,10 @@ import java.util.Arrays;
 public class Reader {
     public static String[] read() {
 
-        String[] arr = new String[6];
+        String[] arr = new String[5];
         try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\sin\\Desktop\\exel.txt"))) {
 
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 5; i++) {
                 String s = br.readLine();
                 arr[i] = s;
 
