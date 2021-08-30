@@ -8,18 +8,7 @@ public class PhoneParser {
 
     public static void main(String[] args) throws IOException {
 
-       /* try(BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\sin\\Desktop\\exel.txt")))
-        {
-            String [] arr = new String[6];
-            for (int i=0; i<6; i++)
-            {
-                String s = br.readLine();
-                arr[i] = s;
-
-            }
-            System.out.println(Arrays.toString(arr));
-        */
-         String [] arr = Reader.read();
+           String [] arr = Reader.read(); //DATA
 
 
             for (int i=0; i< arr.length; i++)
@@ -27,18 +16,44 @@ public class PhoneParser {
 
                 String g = arr[i];
                 char[] c_arr = g.toCharArray();
+
                 if (c_arr[0] == '+')
                 {
                     c_arr[0] = '8';
+                   for (int j = 1; j < arr.length; j++)
+                   {
+                       c_arr[j]=c_arr[j+1];
+                   }
                     arr[i]= Arrays.toString(c_arr);
                     arr[i] = arr[i].replaceAll("[,]", "");
                     arr[i] = arr[i].replace("[", "");
                     arr[i] = arr[i].replace("]", "");
                     arr[i] = arr[i].replaceAll("\\s","");
                 }
+
+                for (int k = 0; k < arr.length; k ++) {
+
+
+                    if ((c_arr[k] == '(')|(c_arr[k] == ')')|(c_arr[k] == '-'))
+
+                    {
+
+                        for (int j = 1; j < arr.length; j++) {
+                            c_arr[j] = c_arr[j - 1];
+                        }
+                        arr[i] = Arrays.toString(c_arr);
+                        arr[i] = arr[i].replaceAll("[,]", "");
+                        arr[i] = arr[i].replace("[", "");
+                        arr[i] = arr[i].replace("]", "");
+                        arr[i] = arr[i].replaceAll("\\s", "");
+                    }
+
+
+                }
+
             }
 
-            Writer.write(arr);
+            Writer.write(arr);//OUTPUT
 
         }
 
