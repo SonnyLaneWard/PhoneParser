@@ -6,9 +6,9 @@ import java.util.Arrays;
 
 public class PhoneParser {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        try(BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\sin\\Desktop\\exel.txt")))
+       /* try(BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\sin\\Desktop\\exel.txt")))
         {
             String [] arr = new String[6];
             for (int i=0; i<6; i++)
@@ -18,6 +18,10 @@ public class PhoneParser {
 
             }
             System.out.println(Arrays.toString(arr));
+        */
+         String [] arr = Reader.read();
+
+
             for (int i=0; i< arr.length; i++)
             {
 
@@ -34,24 +38,9 @@ public class PhoneParser {
                 }
             }
 
-            try(FileWriter writer = new FileWriter("C:\\Users\\sin\\Desktop\\notes3.txt", false))
-            {
-                for (int i=0; i< arr.length; i++)
-                {
-                    writer.write(arr[i] + "\n");
-                }
-
-
-
-
-                writer.flush();
-            }
-
+            Writer.write(arr);
 
         }
-        catch(IOException ex){
 
-            System.out.println(ex.getMessage());
-        }
     }
-}
+
