@@ -37,9 +37,9 @@ public class PhoneParser {
                     if ((c_arr[k] == '(')|(c_arr[k] == ')')|(c_arr[k] == '-'))
 
                     {
+                        //System.arraycopy(c_arr, k, c_arr, k-1, c_arr.length);
+                        //c_arr =Arrays.copyOf(c_arr,c_arr.length-1);
 
-                        for (int j = 1; j < c_arr.length; j++) {
-                            c_arr[j] = c_arr[j - 1];
                         }
                         arr[i] = Arrays.toString(c_arr);
                         arr[i] = arr[i].replaceAll("[,]", "");
@@ -51,12 +51,13 @@ public class PhoneParser {
 
                 }
 
+        Writer.write(arr);//OUTPUT
+        System.out.println(Arrays.toString(arr));
             }
 
-            Writer.write(arr);//OUTPUT
-        System.out.println(Arrays.toString(arr));
+
 
         }
 
-    }
+
 
