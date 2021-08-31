@@ -1,21 +1,28 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Reader {
-    public static String[] read() {
+    public static ArrayList<String> read() {
+        ArrayList<String> arr = new ArrayList<>();
 
-        String[] arr = new String[5];
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\810631\\Desktop\\exel.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\810631\\Desktop\\test.txt"))) {
 
-            for (int i = 0; i < 5; i++) {
-                String s = br.readLine();
-                arr[i] = s;
+
+           for(int i =0; i < 6000000; i++)
+           {
+               String s = br.readLine();
+               if ( s ==null)
+               {
+                   break;
+               }
+                arr.add(s);
 
             }
 
-            System.out.println(Arrays.toString(arr));
+            System.out.println(arr);
 
         }
         catch(IOException ex){

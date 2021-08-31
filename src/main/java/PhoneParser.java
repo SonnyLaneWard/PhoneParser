@@ -1,17 +1,19 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PhoneParser {
 
     public static void main(String[] args) throws IOException {
 
-           String [] arr = Reader.read(); //DATA
+        ArrayList<String> arr = Reader.read(); //DATA
 
 
-            for (int i=0; i< arr.length; i++)
+            for (int i=0; i< arr.size(); i++)
             {
 
-                String g = arr[i];
+
+                String g = arr.get(i);
                 char[] c_arr = g.toCharArray();
 
                 if (c_arr[0] == '+')
@@ -23,36 +25,20 @@ public class PhoneParser {
                       System.arraycopy(c_arr, 2, c_arr, 1, c_arr.length-2);
                     c_arr =Arrays.copyOf(c_arr,c_arr.length-1);
 
-                    arr[i]= Arrays.toString(c_arr);
-                    arr[i] = arr[i].replaceAll("[,]", "");
-                    arr[i] = arr[i].replace("[", "");
-                    arr[i] = arr[i].replace("]", "");
-                    arr[i] = arr[i].replaceAll("\\s","");
+
+
+                    arr.set(i, Arrays.toString(c_arr));
+
 
                 }
 
-                for (int k = 0; k < c_arr.length; k ++) {
 
-
-                    if ((c_arr[k] == '(')|(c_arr[k] == ')')|(c_arr[k] == '-'))
-
-                    {
-                        //System.arraycopy(c_arr, k, c_arr, k-1, c_arr.length);
-                        //c_arr =Arrays.copyOf(c_arr,c_arr.length-1);
-
-                        }
-                        arr[i] = Arrays.toString(c_arr);
-                        arr[i] = arr[i].replaceAll("[,]", "");
-                        arr[i] = arr[i].replace("[", "");
-                        arr[i] = arr[i].replace("]", "");
-                        arr[i] = arr[i].replaceAll("\\s", "");
-                    }
 
 
                 }
 
         Writer.write(arr);//OUTPUT
-        System.out.println(Arrays.toString(arr));
+        System.out.println(arr);
             }
 
 
