@@ -16,7 +16,7 @@ public class PhoneParser {
                 String g = arr.get(i);
                 char[] c_arr = g.toCharArray();
 
-                if (c_arr[0] == '+')
+               /* if (c_arr[0] == '+')
                 {
                     c_arr[0] = '8';
 
@@ -27,10 +27,46 @@ public class PhoneParser {
 
                     String st = Arrays.toString(c_arr);
 
+                    st = st.replaceAll("[,]", "");
+                    st = st.replace("[", "");
+                    st = st.replace("]", "");
+                    st = st.replace("(", "");
+                    st = st.replace(")", "");
+                    st = st.replace("-", "");
+                    st = st.replaceAll("\\s", "");
+                    st = st.replaceAll("[^\\d-]", "");
+
+
 
 
                     arr.set(i, st);
 
+
+                } */
+
+                if (c_arr[0] == '8')
+                {
+                    c_arr =Arrays.copyOf(c_arr,c_arr.length+1);
+                    System.arraycopy(c_arr, 0, c_arr, 1, c_arr.length-1);
+                    c_arr[0] = '+';
+                    c_arr[1] = '7';
+
+                    String st = Arrays.toString(c_arr);
+
+                    st = st.replaceAll("[,]", "");
+                    st = st.replace("[", "");
+                    st = st.replace("]", "");
+                    st = st.replace("(", "");
+                    st = st.replace(")", "");
+                    st = st.replace("-", "");
+                    st = st.replaceAll("\\s", "");
+
+                    st = st.replaceAll("[^\\d]", "");
+
+
+
+
+                    arr.set(i, st);
 
                 }
 
