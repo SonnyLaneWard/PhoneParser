@@ -1,10 +1,11 @@
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PhoneParser {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, URISyntaxException {
 
         ArrayList<String> arr = Reader.read(); //DATA
 
