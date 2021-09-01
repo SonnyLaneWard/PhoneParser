@@ -62,6 +62,7 @@ public class PhoneParser {
                     st = st.replaceAll("\\s", "");
 
                     st = st.replaceAll("[^\\d]", "");
+                    st = "+" + st;
 
 
 
