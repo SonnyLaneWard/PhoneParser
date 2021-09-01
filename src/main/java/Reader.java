@@ -3,17 +3,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Reader {
     public static ArrayList<String> read() {
         ArrayList<String> arr = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\810631\\Desktop\\test.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\810631\\Desktop\\exel.txt"))) {
 
 
-           for(int i =0; i < 6000000; i++)
+           for(int i =0; i < 10000; i++)
            {
                String s = br.readLine();
+               if (Objects.equals(s, ""))
+               {
+                   continue;
+               }
                if ( s ==null)
                {
                    break;

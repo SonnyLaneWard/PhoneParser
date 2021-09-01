@@ -14,6 +14,15 @@ public class PhoneParser {
 
 
                 String g = arr.get(i);
+
+                int index = g.indexOf(',');
+                if (index != -1)
+                {
+                    g = g.substring(0,index);
+                }
+
+
+
                 char[] c_arr = g.toCharArray();
 
                /* if (c_arr[0] == '+')
@@ -51,26 +60,26 @@ public class PhoneParser {
                     c_arr[0] = '+';
                     c_arr[1] = '7';
 
-                    String st = Arrays.toString(c_arr);
 
-                    st = st.replaceAll("[,]", "");
-                    st = st.replace("[", "");
-                    st = st.replace("]", "");
-                    st = st.replace("(", "");
-                    st = st.replace(")", "");
-                    st = st.replace("-", "");
-                    st = st.replaceAll("\\s", "");
-
-                    st = st.replaceAll("[^\\d]", "");
-                    st = "+" + st;
-
-
-
-
-                    arr.set(i, st);
 
                 }
+                String st = Arrays.toString(c_arr);
 
+                st = st.replaceAll("[,]", "");
+                st = st.replace("[", "");
+                st = st.replace("]", "");
+                st = st.replace("(", "");
+                st = st.replace(")", "");
+                st = st.replace("-", "");
+                st = st.replaceAll("\\s", "");
+
+                st = st.replaceAll("[^\\d]", "");
+                st = "+" + st;
+
+
+
+
+                arr.set(i, st);
 
 
 
