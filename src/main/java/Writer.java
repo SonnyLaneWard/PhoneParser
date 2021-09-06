@@ -1,16 +1,20 @@
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Writer {
 
 
-    public static void write(String arr [])
-    {
-        try(FileWriter writer = new FileWriter("C:\\Users\\810631\\Desktop\\notes3.txt", false))
+    public static void write(ArrayList<String>arr) {
+        String username = System.getProperty("user.name");
+
+        System.out.println(username);
+
+        try(FileWriter writer = new FileWriter("C:/Users/" + username + "/Desktop/out.txt", false))
         {
-            for (int i=0; i< arr.length; i++)
+            for (int i=0; i< arr.size(); i++)
             {
-                writer.write(arr[i] + "\n");
+                writer.write(arr.get(i) + "\n");
             }
 
 
