@@ -4,6 +4,10 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.util.ArrayList;
@@ -80,10 +84,17 @@ public class PhoneParser extends  Application{
 
     @Override
     public void start(Stage stage) throws Exception {
+
+
+
+
         // установка надписи
         Text text = new Text("Data input");
+        text.setFill(Color.color(0.5, 0.5, 0.7, 0.9));
+        text.setFont(Font.font("Lucida Grande", FontWeight.BOLD, FontPosture.ITALIC, 30));
         text.setLayoutY(80);    // установка положения надписи по оси Y
         text.setLayoutX(200);   // установка положения надписи по оси X
+
 
         Button btn = new Button();
         btn.setText("OK");
@@ -92,8 +103,12 @@ public class PhoneParser extends  Application{
 
         Label label = new Label();
         label.setText("Input file name");
+        label.setFont(Font.font("Lucida Grande", FontWeight.MEDIUM, FontPosture.REGULAR, 16));
+        label.setTextFill(Color.color(0.5, 0.5, 0.5));
         Label label2 = new Label();
         label2.setText("Output file name");
+        label2.setFont(Font.font("Lucida Grande", FontWeight.MEDIUM, FontPosture.REGULAR, 16));
+        label2.setTextFill(Color.color(0.5, 0.5, 0.5));
 
         TextField textField = new TextField();
         TextField textField2 = new TextField();
@@ -101,24 +116,27 @@ public class PhoneParser extends  Application{
 
         GridPane gridpane = new GridPane();
         gridpane.add(text,2 ,1);
-        gridpane.add(btn,2,2);
-        gridpane.add(label,2,3);
-        gridpane.add(textField,2,4);
-        gridpane.add(label2,2,5);
-        gridpane.add(textField2,2,6);
+        gridpane.add(btn,2,6);
+        gridpane.add(label,2,2);
+        gridpane.add(textField,2,3);
+        gridpane.add(label2,2,4);
+        gridpane.add(textField2,2,5);
 
 
         Scene scene = new Scene(gridpane);
+        scene.setFill(Color.color(0.5, 0.5, 0.333, 0.3));
         stage.setScene(scene);
+
         stage.setTitle("Phone Parser");
-        stage.setWidth(200);
-        stage.setHeight(200);
+        stage.setWidth(180);
+        stage.setHeight(250);
         stage.show();
 
 
         btn.setOnAction(event -> {
              name1 = textField.getText();
              name2 = textField2.getText();
+             btn.setVisible(false);
 
         });
 
