@@ -1,19 +1,18 @@
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.StageStyle;
 
 
 public class PhoneParser extends  Application{
@@ -92,14 +91,33 @@ public class PhoneParser extends  Application{
         Text text = new Text("Data input");
         text.setFill(Color.color(0.5, 0.5, 0.7, 0.9));
         text.setFont(Font.font("Lucida Grande", FontWeight.BOLD, FontPosture.ITALIC, 30));
-        text.setLayoutY(80);    // установка положения надписи по оси Y
-        text.setLayoutX(200);   // установка положения надписи по оси X
+
+        String username = System.getProperty("user.name");
+        Text text2 = new Text("Hello " + username);
+        text2.setFill(Color.color(0.5, 0.5, 0.7, 0.9));
+        text2.setFont(Font.font("Lucida Grande", FontWeight.BOLD, FontPosture.ITALIC, 20));
+
 
 
         Button btn = new Button();
-        btn.setText("OK");
-        btn.setLayoutX(200);
-        btn.setLayoutY(450);
+        btn.setText("   Convert   ");
+
+        btn.setFont(Font.font("Lucida Grande", FontWeight.MEDIUM, FontPosture.REGULAR, 16));
+        btn.setTextAlignment(TextAlignment.CENTER);
+        btn.setStyle("#iphone {\n" +
+                "    -fx-background-color: \n" +
+                "        #516175,\n" +
+                "        linear-gradient(#303842 0%, #3e5577 20%, #375074 100%),\n" +
+                "        linear-gradient(#768aa5 0%, #849cbb 5%, #5877a2 50%, #486a9a 51%, #4a6c9b 100%);\n" +
+                "    -fx-background-insets: 0 0 -1 0,0,1;\n" +
+                "    -fx-background-radius: 5,5,4;\n" +
+                "    -fx-padding: 7 30 7 30;\n" +
+                "    -fx-text-fill: #202224;\n" +
+                "    -fx-font-family: \"Lucida Grande\";\n" +
+                "    -fx-font-size: 16px;\n" +
+                "    -fx-text-fill: gray;\n" +
+                "}");
+
 
         Label label = new Label();
         label.setText("Input file name");
@@ -115,21 +133,32 @@ public class PhoneParser extends  Application{
 
 
         GridPane gridpane = new GridPane();
+        gridpane.setAlignment(Pos.CENTER);
+        gridpane.setBlendMode(BlendMode.MULTIPLY);
+        gridpane.setHgap(3);
+        gridpane.setVgap(3);
+
+        gridpane.add(text2,2 ,2);
         gridpane.add(text,2 ,1);
-        gridpane.add(btn,2,6);
-        gridpane.add(label,2,2);
-        gridpane.add(textField,2,3);
-        gridpane.add(label2,2,4);
-        gridpane.add(textField2,2,5);
+        gridpane.add(btn,2,7);
+        GridPane.setHalignment(btn, HPos.CENTER);
+        gridpane.add(label,2,3);
+        gridpane.add(textField,2,4);
+        gridpane.add(label2,2,5);
+        gridpane.add(textField2,2,6);
 
 
         Scene scene = new Scene(gridpane);
-        scene.setFill(Color.color(0.5, 0.5, 0.333, 0.3));
+
+
         stage.setScene(scene);
 
         stage.setTitle("Phone Parser");
-        stage.setWidth(180);
-        stage.setHeight(250);
+        stage.setWidth(320);
+        stage.setHeight(320);
+        stage.initStyle(StageStyle.UTILITY);
+        stage.setResizable(false);
+
         stage.show();
 
 
