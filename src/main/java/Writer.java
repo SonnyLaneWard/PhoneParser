@@ -10,7 +10,7 @@ public class Writer {
 
         System.out.println(username);
 
-        try(FileWriter writer = new FileWriter("C:/Users/" + username + "/Desktop/out.txt", false))
+        try(FileWriter writer = new FileWriter("C:/Users/" + username + "/Desktop/" + PhoneParser.name2 + ".txt", false))
         {
             for (int i=0; i< arr.size(); i++)
             {

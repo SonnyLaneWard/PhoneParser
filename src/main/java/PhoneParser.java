@@ -1,4 +1,6 @@
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
@@ -11,6 +13,8 @@ import javafx.scene.control.TextField;
 
 
 public class PhoneParser extends  Application{
+    static String name1;
+    static String name2;
 
     public static void main(String[] args) {
 
@@ -110,6 +114,15 @@ public class PhoneParser extends  Application{
         stage.setWidth(200);
         stage.setHeight(200);
         stage.show();
+
+
+        btn.setOnAction(event -> {
+             name1 = textField.getText();
+             name2 = textField2.getText();
+
+        });
+
+
     }
 }
 

@@ -15,7 +15,7 @@ public class Reader {
 
 
 
-        try (BufferedReader br = new BufferedReader(new FileReader("C:/Users/"+ username + "/Desktop/test.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("C:/Users/"+ username + "/Desktop/" + PhoneParser.name1 +".txt"))) {
             // C:\Users\810631\Desktop\exel.txt
 
             for(int i =0; i < 10000; i++)
