@@ -101,8 +101,6 @@ public class PhoneParser extends  Application{
 
         Button btn = new Button();
         btn.setText("   Convert   ");
-
-        btn.setFont(Font.font("Lucida Grande", FontWeight.MEDIUM, FontPosture.REGULAR, 16));
         btn.setTextAlignment(TextAlignment.CENTER);
         btn.setStyle("#iphone {\n" +
                 "    -fx-background-color: \n" +
@@ -166,6 +164,7 @@ public class PhoneParser extends  Application{
              name1 = textField.getText();
              name2 = textField2.getText();
              btn.setVisible(false);
+             text2.setText("SUCCEED!");
 
         });
 
